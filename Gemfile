@@ -28,6 +28,9 @@ gem 'criticism', github: 'marcferna/criticism', branch: 'master'
 
 gem 'devise'
 
+# Sass-powered version of Bootstrap 3
+gem 'bootstrap-sass', '~> 3.3.6'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
