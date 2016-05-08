@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160508024251) do
+ActiveRecord::Schema.define(version: 20160508080910) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20160508024251) do
     t.string   "uid",        limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
   end
+
+  add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -61,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160508024251) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "apps", "users"
   add_foreign_key "reviews", "apps"
   add_foreign_key "reviews", "authors"
 end
