@@ -11,25 +11,31 @@ class AppReviewsJob
   def self.parse_page(app, page)
     return if page.entries.empty?
     page.entries.each do |entry|
-      # TODO - Add index to Review uid
-      return if Review.find_by(uid: entry.id).present?
-      # TODO - Find author by id
-      # TODO - Add index to author finding field
-      author = Author.find_or_create_by(name: entry.author.name) do |author|
-        author.uri = entry.author.uri
+      # TODO: Add index to Review uid
+      next if review?
+      # TODO: Find author by id
+      # TODO: Add index to author finding field
+      author = Author.find_or_create_by(name: entry.author.name) do |new_author|
+        new_author.uri = entry.author.uri
       end
-
-      Review.create!(
-        app_id:    app.id,
-        uid:       entry.id,
-        title:     entry.title,
-        text:      entry.review,
-        rating:    entry.rating,
-        version:   entry.version,
-        author_id: author.id
-      )
+      create_review(app, entry, author)
     end
+    parse_page(app, page.next)
+  end
 
-    self.parse_page(app, page.next)
+  def self.review?(entry)
+    Review.find_by(uid: entry.id).present?
+  end
+
+  def self.create_review(app, entry, author)
+    Review.create!(
+      app_id:    app.id,
+      uid:       entry.id,
+      title:     entry.title,
+      text:      entry.review,
+      rating:    entry.rating,
+      version:   entry.version,
+      author_id: author.id
+    )
   end
 end
