@@ -28,6 +28,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Font-Awesome web fonts and stylesheets
 gem 'font-awesome-rails'
+# Decorators/View-Models
+gem 'draper'
 
 group :development, :test do
   # Debugger
