@@ -1,4 +1,7 @@
 <tr>
   <td><%= app.name %></td>
   <td><%= app.type %></td>
+  <td>
+    <%= link_to 'Reviews', app_reviews_path(app), class: 'btn btn-primary' %>
+  </td>
 </tr>
