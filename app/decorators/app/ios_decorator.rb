@@ -1,4 +1,5 @@
 class App::IosDecorator < Draper::Decorator
+  decorates App::Ios
   delegate_all
 
   def type

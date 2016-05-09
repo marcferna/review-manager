@@ -1,0 +1,8 @@
+<tr>
+  <td><%= review.title %></td>
+  <td><%= review.text %></td>
+  <td><%= review.rating %></td>
+  <td><%= review.version %></td>
+  <td><%= review.author.try(:name) %></td>
+  <td><%= review.created_at %></td>
+</tr>

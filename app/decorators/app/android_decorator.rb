@@ -1,4 +1,5 @@
 class App::AndroidDecorator < Draper::Decorator
+  decorates App::Android
   delegate_all
 
   def type
