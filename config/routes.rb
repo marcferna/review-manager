@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     get '/' => :home
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   devise_scope :user do
     authenticated :user do
       root 'apps#index', as: :authenticated_root

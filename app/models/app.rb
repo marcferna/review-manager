@@ -1,6 +1,6 @@
 class App < ActiveRecord::Base
-  # Scopes
-  belongs_to :user
+  # Relationships
+  belongs_to :organization
   has_many :reviews
 
   # Validations

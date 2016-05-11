@@ -4,6 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Scopes
-  has_many :apps
+  # Relationships
+  belongs_to :organization
+
+  # Delegations
+  delegate :apps, to: :organization
+
+  # Validations
+  validates :organization, presence: true
+
+  # Attributes
+  accepts_nested_attributes_for :organization
 end
