@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511040617) do
+ActiveRecord::Schema.define(version: 20160511042736) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20160511040617) do
   add_index "reviews", ["app_id"], name: "index_reviews_on_app_id", using: :btree
   add_index "reviews", ["author_id"], name: "index_reviews_on_author_id", using: :btree
 
+  create_table "slack_integrations", force: :cascade do |t|
+    t.integer  "organization_id", limit: 4
+    t.string   "webhook_url",     limit: 255
+    t.string   "channel",         limit: 255
+    t.boolean  "active",                      default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "slack_integrations", ["organization_id"], name: "index_slack_integrations_on_organization_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -75,5 +86,6 @@ ActiveRecord::Schema.define(version: 20160511040617) do
   add_foreign_key "apps", "organizations"
   add_foreign_key "reviews", "apps"
   add_foreign_key "reviews", "authors"
+  add_foreign_key "slack_integrations", "organizations"
   add_foreign_key "users", "organizations"
 end

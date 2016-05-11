@@ -3,6 +3,7 @@ class App::AndroidDecorator < Draper::Decorator
   delegate_all
 
   def type
-    helpers.fa_icon('android', text: 'Android')
+    'Android'
+    # helpers.fa_icon('android', text: 'Android')
   end
 end
