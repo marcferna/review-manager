@@ -4,5 +4,5 @@ class App < ActiveRecord::Base
   has_many :reviews
 
   # Validations
-  validates :user_id, :name, :type, presence: true
+  validates :name, :type, :organization, presence: true
 end

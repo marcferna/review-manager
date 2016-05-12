@@ -2,8 +2,8 @@ class AppReviewsJob
   @queue = :app_reviews
 
   def self.perform
-    App.all.each do |app|
-      feed = Criticism::Feed.new(app_id: app.uid)
+    App::Ios.all.each do |app|
+      feed = Criticism::Ios::Feed.new(app_id: app.uid)
       parse_page(app, feed.page)
     end
   end
@@ -12,7 +12,7 @@ class AppReviewsJob
     return if page.entries.empty?
     page.entries.each do |entry|
       # TODO: Add index to Review uid
-      next if review?
+      next if review?(entry)
       # TODO: Find author by id
       # TODO: Add index to author finding field
       author = Author.find_or_create_by(name: entry.author.name) do |new_author|
@@ -32,7 +32,7 @@ class AppReviewsJob
       app_id:    app.id,
       uid:       entry.id,
       title:     entry.title,
-      text:      entry.review,
+      text:      entry.text,
       rating:    entry.rating,
       version:   entry.version,
       author_id: author.id

@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :apps do
     resources :reviews
   end
+  resources :integrations, only: [:index]
+  resources :slack_integrations, only: [:new, :create, :edit, :update, :delete]
 end

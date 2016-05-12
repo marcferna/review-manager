@@ -19,7 +19,7 @@ class ReviewsController < DashboardController
   end
 
   def check_app_user_ownership
-    if app.user != current_user
+    if app.organization != current_organization
       redirect_to authenticated_root_path, alert: alert
     end
   end
