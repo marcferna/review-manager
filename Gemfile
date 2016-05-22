@@ -48,6 +48,8 @@ gem 'rails_12factor'
 group :development, :test do
   # Debugger
   gem 'byebug'
+  # Loads environment variables from `.env`.
+  gem 'dotenv-rails'
 end
 
 group :development do
