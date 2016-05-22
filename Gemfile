@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Review parser for iOS and Android.
-gem 'criticism', github: 'marcferna/criticism', branch: 'master'
+gem 'criticism', git: "https://62df58300f22dd01f441acec72bf578d9086d52f:x-oauth-basic@github.com/marcferna/criticism.git", branch: 'master'
 # Flexible authentication solution.
 gem 'devise'
 # Sass-powered version of Bootstrap 3.

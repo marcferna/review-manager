@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/marcferna/criticism.git
+  remote: https://62df58300f22dd01f441acec72bf578d9086d52f:x-oauth-basic@github.com/marcferna/criticism.git
   revision: 2921c9b7591f94345f8b49d330024c0c046bc777
   branch: master
   specs:
@@ -55,7 +55,6 @@ GEM
     autoprefixer-rails (6.3.6)
       execjs
     bcrypt (3.1.11)
-    beefcake (1.1.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -94,10 +93,10 @@ GEM
       railties (>= 3.2, < 5.1)
     foreman (0.81.0)
       thor (~> 0.19.1)
-    gcloud (0.8.2)
-      beefcake (~> 1.0)
+    gcloud (0.10.0)
       digest-crc (~> 0.4)
       google-api-client (~> 0.8.3)
+      google-protobuf (= 3.0.0.alpha.5.0.5.1)
       grpc (~> 0.13.1)
       mime-types (~> 2.4)
       zonefile (~> 1.04)
@@ -154,11 +153,11 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     memoist (0.14.0)
-    mime-types (2.99.1)
+    mime-types (2.99.2)
     mini_portile2 (2.0.0)
-    minitest (5.8.4)
+    minitest (5.9.0)
     mono_logger (1.1.0)
-    multi_json (1.12.0)
+    multi_json (1.12.1)
     multipart-post (2.0.0)
     mysql2 (0.4.4)
     nokogiri (1.6.7.2)
