@@ -22,3 +22,10 @@ Rails.application.routes.draw do
   resources :integrations, only: [:index]
   resources :slack_integrations, only: [:new, :create, :edit, :update, :delete]
 end
+
+require 'resque_web'
+require 'resque/scheduler/server'
+
+ReviewManager::Application.routes.draw do
+  mount ResqueWeb::Engine => "/resque_web"
+end

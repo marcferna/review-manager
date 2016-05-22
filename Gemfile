@@ -32,6 +32,16 @@ gem 'font-awesome-rails'
 gem 'draper'
 # A simple wrapper to send notifications to Slack webhooks.
 gem 'slack-notifier'
+# Manage Procfile-based applications.
+gem 'foreman'
+# Redis-backed Ruby library for creating background jobs.
+gem 'resque'
+# Rails-based web interface to Resque
+gem 'resque-web', require: 'resque_web'
+# A light-weight job scheduling system built on top of resque.
+gem 'resque-scheduler'
+# Tabs in the Resque Web gem for the Resque Scheduler plugin
+gem 'resque-scheduler-web'
 
 group :development, :test do
   # Debugger

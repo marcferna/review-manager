@@ -1,0 +1,4 @@
+'ImporterJob':
+  queue: importer
+  description: >
+  cron: '0 */1 * * * US/Pacific' # Every minute
