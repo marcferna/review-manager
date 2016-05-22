@@ -42,6 +42,8 @@ gem 'resque-web', require: 'resque_web'
 gem 'resque-scheduler'
 # Tabs in the Resque Web gem for the Resque Scheduler plugin
 gem 'resque-scheduler-web'
+# Makes running your Rails app easier. Based on the ideas behind 12factor.net
+gem 'rails_12factor'
 
 group :development, :test do
   # Debugger
