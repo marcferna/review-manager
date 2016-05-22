@@ -5,7 +5,7 @@ require 'resque/scheduler/tasks'
 namespace :resque do
   task setup: :environment do
     require 'resque'
-    Resque.redis = 'localhost:6379'
+    Resque.redis = ENV['REDIS_URL'] || 'redis://127.0.0.1:6379'
   end
 
   task setup_schedule: :setup do
