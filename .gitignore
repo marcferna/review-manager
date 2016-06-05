@@ -17,3 +17,6 @@
 
 # Redis
 dump.rdb
+
+# Env
+.env
